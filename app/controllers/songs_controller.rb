@@ -23,7 +23,7 @@ class SongsController < ApplicationController
 
   private
   def genre_params
-    params.require(:genre).permit(:name)
+    params.require(:genre).permit(:name, :artist_id, :genre_id)
   end
   def set_genre
     @genre = Genre.find(params[:id])
