@@ -1,31 +1,31 @@
 class SongsController < ApplicationController
-  before_action :set_genre, only: [:show, :edit, :update]
+  before_action :set_song, only: [:show, :edit, :update]
 
   def new
-    @genre = Genre.new
+    @song = Song.new
   end
 
   def show
   end
 
   def create
-    genre = Genre.create(genre_params)
-    redirect_to genre_path(genre)
+    song = Song.create(song_params)
+    redirect_to song_path(song)
   end
 
   def edit
   end
 
   def update
-    @genre.update(genre_params)
-    redirect_to genre_path(@genre)
+    @song.update(song_params)
+    redirect_to song_path(@song)
   end
 
   private
-  def genre_params
-    params.require(:genre).permit(:name, :artist_id, :genre_id)
+  def song_params
+    params.require(:song).permit(:name, )
   end
-  def set_genre
-    @genre = Genre.find(params[:id])
+  def set_song
+    @song = Song.find(params[:id])
   end
 end
